@@ -48,3 +48,43 @@ function diagnosticoDeInventario() {
 }
 simulardiadeventas();
 diagnosticoDeInventario();
+
+function iniciarGestion() {
+    while (true) {
+        let opcion = prompt(
+            " MENÚ DE GESTIÓN DE INVENTARIO\n\n" +
+            "1. Registrar venta\n" +
+            "2. Reponer stock\n" +
+            "3. Simular día de ventas\n" +
+            "4. Ver diagnóstico de inventario\n" +
+            "5. Mostrar inventario actual\n" +
+            "6. Salir\n\n" +
+            "Elige una opción (1-6):"
+        );
+        switch (opcion) {
+            case "1":
+                let cantidadVendida = parseInt(prompt("Ingrese la cantidad vendida:"));
+                registrarVenta(cantidadVendida);
+                break;
+            case "2":
+                let cantidadRepuesta = parseInt(prompt("Ingrese la cantidad a reponer:"));
+                reponerStock(cantidadRepuesta);
+                break;
+            case "3":
+                simulardiadeventas();
+                break;
+            case "4":
+                diagnosticoDeInventario();
+                break;
+            case "5":
+                mostrarInventario();
+                break;
+            case "6":
+                console.log("Saliendo del sistema...");
+                return;
+            default:
+            console.log("Opción no válida. Intente nuevamente.");
+        }
+    }
+}
+iniciarGestion();
